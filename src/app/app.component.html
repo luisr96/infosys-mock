@@ -1,4 +1,9 @@
-<button routerLink="/order" [disabled]="cart.length !== 0">Place Order</button>
-<button routerLink="/checkout" [disabled]="!(cart.length > 0)">Checkout</button>
-
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="nav">
+        <button class="button" routerLink="/order" [disabled]="cart.length !== 0">Place Order</button>
+        <button class="button" routerLink="/checkout" [disabled]="!(cart.length > 0)">Checkout</button> 
+    </div>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</div>

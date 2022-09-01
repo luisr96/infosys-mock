@@ -1,30 +1,33 @@
 
 <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
     <ng-container *ngFor="let item of items">
-        <input
-            ngModel
-            [name]="item.name"
-            [id]="item.name" 
-            [(ngModel)]="item.isChecked"
-            type="checkbox" 
-        >
-        <label 
-            [for]="item.name"
-            [title]="item.description"
+        <div class="container">
+            <input
+                ngModel
+                [name]="item.name"
+                [id]="item.name"
+                [(ngModel)]="item.isChecked"
+                type="checkbox"
             >
-            {{ item.name }} {{ item.price | currency }}
-        </label>
-            
-        <br>
+            <label
+                [for]="item.name"
+                [title]="item.description"
+                >
+                {{ item.name }} {{ item.price | currency }}
+            </label>
+            <br>
+        </div>
     </ng-container>
     <button 
+        id="order-now-button"
         type="submit" 
         [disabled]="cart.length !== 0" 
+        class="button is-primary"
         >Order Now
     </button>
     
     <div *ngIf="cart.length > 0">
         <p>Order is placed successfully.</p>
-        <button routerLink="/home">Go Home</button>
+        <button class="button is-light" routerLink="/home">Go Home</button>
     </div>
 </form>

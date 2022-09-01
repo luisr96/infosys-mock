@@ -4,5 +4,5 @@
 <div>Total items: {{ cart.length }}</div>
 <div>Total price: {{ calcTotalPrice() | currency }}</div>
 
-<button (click)="onPayNow()" type="submit">Pay Now</button>
+<button id="pay-now-button" class="button is-success" (click)="onPayNow()" type="submit">Pay Now</button>
 <p *ngIf="paid">Thanks. Please visit us again.</p>

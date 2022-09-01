@@ -1,0 +1,8 @@
+.container {
+    padding: 4px;
+}
+
+#order-now-button {
+    margin-top: 12px;
+    align-items: flex-end;
+}
