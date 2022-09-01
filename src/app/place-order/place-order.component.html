@@ -1,0 +1,31 @@
+
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <ng-container *ngFor="let item of items">
+        <input
+            ngModel
+            [name]="item.name"
+            [id]="item.name" 
+            [(ngModel)]="item.isChecked"
+            type="checkbox" 
+        >
+        <label 
+            [for]="item.name"
+            [title]="item.description"
+            >
+            {{ item.name }} {{ item.price | currency }}
+        </label>
+            
+        <br>
+    </ng-container>
+    <button 
+        type="submit" 
+        [disabled]="cart.length !== 0" 
+        >Order Now
+    </button>
+    
+    <div *ngIf="cart.length > 0">
+        <p>Order is placed successfully.</p>
+        <button routerLink="/home">Go Home</button>
+    </div>
+    <div>{{ cart | json }}</div>
+</form>

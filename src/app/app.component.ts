@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { OrderService } from './order.service';
+import { Item } from './place-order/Item';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'infosys-mock';
+  constructor(private orderService: OrderService) {}
+
+  cart: Item[] = [];
+
+  ngOnInit() {
+    this.orderService.order.subscribe( res => {
+      this.cart = res;
+    })
+  }
 }
